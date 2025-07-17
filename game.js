@@ -1284,10 +1284,10 @@ function gameLoop() {
     // 자원 업데이트 (날씨 효과 적용)
     gameState.treeGrowth += gameState.growthRate * weatherMultiplier * deltaTime;
 
-    // 30초마다 한 번에 돈이 들어오도록 수정
-    const incomeInterval = 30000; // 30초 (밀리초 단위)
+    // 10초마다 한 번에 돈이 들어오도록 수정
+    const incomeInterval = 10000; // 10초 (밀리초 단위)
     if (now - gameState.lastIncomeTime >= incomeInterval) {
-        // 30초가 지났으면 수입 추가
+        // 10초가 지났으면 수입 추가
         const income = gameState.incomeRate;
         gameState.money += income;
         gameState.lastIncomeTime = now;

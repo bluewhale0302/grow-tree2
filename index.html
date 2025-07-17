@@ -22,10 +22,14 @@
             <div class="header-top">
                 <h1 class="animate__animated animate__fadeIn">할아버지의 나무</h1>
                 <div class="header-buttons">
-                    <button id="achievements-btn" class="btn btn-sm btn-outline-light me-2" onclick="showAchievements()">🏆 업적</button>
-                    <button id="settings-btn" class="btn btn-sm btn-outline-light me-2" onclick="showSettings()">⚙️ 설정</button>
-                    <button id="fix-modal-btn" class="btn btn-sm btn-outline-danger me-2" onclick="emergencyModalFix()" title="화면이 어두워지거나 클릭이 안될 때 누르세요">🔧 화면 복구</button>
-                    <button id="fix-achievements-btn" class="btn btn-sm btn-outline-warning" onclick="fixAchievementsAndUpgrades()" title="업적이나 업그레이드가 작동하지 않을 때 누르세요">🛠️ 기능 복구</button>
+                    <button id="achievements-btn" class="btn btn-sm btn-outline-light me-2"
+                        onclick="showAchievements()">🏆 업적</button>
+                    <button id="settings-btn" class="btn btn-sm btn-outline-light me-2" onclick="showSettings()">⚙️
+                        설정</button>
+                    <button id="fix-modal-btn" class="btn btn-sm btn-outline-danger me-2" onclick="emergencyModalFix()"
+                        title="화면이 어두워지거나 클릭이 안될 때 누르세요">🔧 화면 복구</button>
+                    <button id="fix-achievements-btn" class="btn btn-sm btn-outline-warning"
+                        onclick="fixAchievementsAndUpgrades()" title="업적이나 업그레이드가 작동하지 않을 때 누르세요">🛠️ 기능 복구</button>
                 </div>
             </div>
             <div class="resources">
@@ -63,74 +67,79 @@
                             <stop offset="50%" stop-color="#90CAF9" />
                             <stop offset="100%" stop-color="#C5E1A5" />
                         </linearGradient>
-                        
+
                         <!-- 산 그라디언트 -->
                         <linearGradient id="mountain-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stop-color="#2E7D32" />
                             <stop offset="60%" stop-color="#388E3C" />
                             <stop offset="100%" stop-color="#1B5E20" />
                         </linearGradient>
-                        
+
                         <!-- 먼 산 그라디언트 -->
                         <linearGradient id="far-mountain-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
                             <stop offset="0%" stop-color="#1A237E" />
                             <stop offset="60%" stop-color="#303F9F" />
                             <stop offset="100%" stop-color="#3949AB" />
                         </linearGradient>
-                        
+
                         <!-- 잔디 패턴 -->
                         <pattern id="grass-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
-                            <path d="M0,10 L2,7 L4,10 M3,10 L5,5 L7,10 M6,10 L8,6 L10,10" stroke="#4CAF50" stroke-width="1" fill="none"/>
+                            <path d="M0,10 L2,7 L4,10 M3,10 L5,5 L7,10 M6,10 L8,6 L10,10" stroke="#4CAF50"
+                                stroke-width="1" fill="none" />
                         </pattern>
-                        
+
                         <!-- 상세 잔디 패턴 -->
                         <pattern id="detailed-grass" width="30" height="30" patternUnits="userSpaceOnUse">
                             <rect width="30" height="30" fill="#8BC34A" />
-                            <path d="M0,30 L5,25 L10,30 M10,30 L15,20 L20,30 M20,30 L25,22 L30,30" stroke="#7CB342" stroke-width="0.5" fill="none"/>
-                            <path d="M5,30 L10,27 L15,30 M15,30 L20,25 L25,30" stroke="#689F38" stroke-width="0.5" fill="none"/>
+                            <path d="M0,30 L5,25 L10,30 M10,30 L15,20 L20,30 M20,30 L25,22 L30,30" stroke="#7CB342"
+                                stroke-width="0.5" fill="none" />
+                            <path d="M5,30 L10,27 L15,30 M15,30 L20,25 L25,30" stroke="#689F38" stroke-width="0.5"
+                                fill="none" />
                         </pattern>
-                        
+
                         <!-- 빛 효과 필터 -->
                         <filter id="glow">
-                            <feGaussianBlur stdDeviation="2.5" result="coloredBlur"/>
+                            <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
                             <feMerge>
-                                <feMergeNode in="coloredBlur"/>
-                                <feMergeNode in="SourceGraphic"/>
+                                <feMergeNode in="coloredBlur" />
+                                <feMergeNode in="SourceGraphic" />
                             </feMerge>
                         </filter>
-                        
+
                         <!-- 그림자 효과 필터 -->
                         <filter id="shadow">
-                            <feDropShadow dx="2" dy="2" stdDeviation="1.5" flood-color="rgba(0,0,0,0.3)"/>
+                            <feDropShadow dx="2" dy="2" stdDeviation="1.5" flood-color="rgba(0,0,0,0.3)" />
                         </filter>
-                        
+
                         <!-- 물 효과 필터 -->
                         <filter id="water-effect">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="turbulence"/>
-                            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="turbulence" />
+                            <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="10" xChannelSelector="R"
+                                yChannelSelector="G" />
                         </filter>
-                        
+
                         <!-- 벽돌 패턴 -->
                         <pattern id="brick-pattern" width="20" height="10" patternUnits="userSpaceOnUse">
                             <rect width="20" height="10" fill="#A1887F" />
                             <rect width="9" height="4" x="0" y="0" fill="#8D6E63" />
                             <rect width="9" height="4" x="10" y="5" fill="#8D6E63" />
-                            <path d="M0,0 L9,0 M0,4 L20,4 M10,5 L19,5 M10,9 L20,9" stroke="#795548" stroke-width="0.2" />
+                            <path d="M0,0 L9,0 M0,4 L20,4 M10,5 L19,5 M10,9 L20,9" stroke="#795548"
+                                stroke-width="0.2" />
                         </pattern>
-                        
+
                         <!-- 목재 패턴 -->
                         <pattern id="wood-pattern" width="30" height="10" patternUnits="userSpaceOnUse">
                             <rect width="30" height="10" fill="#A1887F" />
                             <path d="M0,2 H30 M0,7 H30" stroke="#8D6E63" stroke-width="0.3" />
                             <path d="M5,0 V10 M15,0 V10 M25,0 V10" stroke="#8D6E63" stroke-width="0.2" />
                         </pattern>
-                        
+
                         <!-- 지붕 패턴 -->
                         <pattern id="roof-pattern" width="10" height="10" patternUnits="userSpaceOnUse">
                             <rect width="10" height="10" fill="#5D4037" />
                             <path d="M0,5 H10 M0,0 H10" stroke="#4E342E" stroke-width="0.5" />
                         </pattern>
-                        
+
                         <!-- 창문 반사 효과 -->
                         <linearGradient id="window-reflection" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#E3F2FD" />
@@ -138,100 +147,111 @@
                             <stop offset="100%" stop-color="#90CAF9" />
                         </linearGradient>
                     </defs>
-                    
+
                     <!-- 하늘 배경 -->
                     <rect id="sky" x="0" y="0" width="300" height="380" fill="url(#sky-gradient)" />
-                    
+
                     <!-- 구름 -->
                     <g id="clouds">
                         <ellipse class="cloud" cx="50" cy="60" rx="25" ry="15" fill="white" opacity="0.8" />
                         <ellipse class="cloud" cx="70" cy="55" rx="20" ry="12" fill="white" opacity="0.8" />
                         <ellipse class="cloud" cx="90" cy="60" rx="25" ry="15" fill="white" opacity="0.8" />
-                        
+
                         <ellipse class="cloud" cx="220" cy="40" rx="30" ry="18" fill="white" opacity="0.7" />
                         <ellipse class="cloud" cx="250" cy="45" rx="25" ry="15" fill="white" opacity="0.7" />
                     </g>
-                    
+
                     <!-- 태양/달 -->
                     <circle id="sun-moon" cx="250" cy="50" r="20" fill="#FFD700" filter="url(#glow)" />
-                    
+
                     <!-- 날씨 효과 그룹 -->
                     <g id="weather-effects"></g>
-                    
+
                     <!-- 먼 산맥 -->
-                    <path id="far-mountains" d="M0,120 L30,90 L60,110 L90,70 L120,100 L150,60 L180,90 L210,50 L240,80 L270,40 L300,70 L300,150 L0,150 Z" fill="url(#far-mountain-gradient)" opacity="0.7" />
-                    
+                    <path id="far-mountains"
+                        d="M0,120 L30,90 L60,110 L90,70 L120,100 L150,60 L180,90 L210,50 L240,80 L270,40 L300,70 L300,150 L0,150 Z"
+                        fill="url(#far-mountain-gradient)" opacity="0.7" />
+
                     <!-- 중간 산맥 -->
-                    <path id="mid-mountains" d="M0,140 L40,100 L80,130 L120,80 L160,120 L200,70 L240,110 L280,80 L300,100 L300,180 L0,180 Z" fill="url(#mountain-gradient)" opacity="0.8" />
-                    
+                    <path id="mid-mountains"
+                        d="M0,140 L40,100 L80,130 L120,80 L160,120 L200,70 L240,110 L280,80 L300,100 L300,180 L0,180 Z"
+                        fill="url(#mountain-gradient)" opacity="0.8" />
+
                     <!-- 가까운 산맥 -->
-                    <path id="near-mountains" d="M0,160 L50,120 L100,150 L150,100 L200,140 L250,90 L300,130 L300,200 L0,200 Z" fill="#2E7D32" opacity="0.9" />
-                    
+                    <path id="near-mountains"
+                        d="M0,160 L50,120 L100,150 L150,100 L200,140 L250,90 L300,130 L300,200 L0,200 Z" fill="#2E7D32"
+                        opacity="0.9" />
+
                     <!-- 작은 호수 -->
-                    <ellipse id="lake" cx="70" cy="210" rx="40" ry="15" fill="#1976D2" opacity="0.7" filter="url(#water-effect)" />
+                    <ellipse id="lake" cx="70" cy="210" rx="40" ry="15" fill="#1976D2" opacity="0.7"
+                        filter="url(#water-effect)" />
                     <path d="M40,210 Q70,205 100,210" stroke="#64B5F6" stroke-width="1" fill="none" />
-                    
+
                     <!-- 메인 집 (벽돌 집) -->
                     <g id="main-house" transform="translate(30, 150) scale(0.5)">
                         <!-- 집 본체 -->
                         <rect x="0" y="30" width="80" height="60" fill="url(#brick-pattern)" filter="url(#shadow)" />
-                        
+
                         <!-- 지붕 -->
                         <polygon points="0,30 40,-10 80,30" fill="url(#roof-pattern)" />
-                        
+
                         <!-- 창문 -->
-                        <rect x="15" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#3E2723" stroke-width="2" />
+                        <rect x="15" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#3E2723"
+                            stroke-width="2" />
                         <path d="M15,55 H35 M25,45 V65" stroke="#3E2723" stroke-width="1" />
-                        
-                        <rect x="45" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#3E2723" stroke-width="2" />
+
+                        <rect x="45" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#3E2723"
+                            stroke-width="2" />
                         <path d="M45,55 H65 M55,45 V65" stroke="#3E2723" stroke-width="1" />
-                        
+
                         <!-- 문 -->
                         <rect x="30" y="70" width="20" height="20" fill="#3E2723" />
                         <circle cx="45" cy="80" r="2" fill="#FFC107" /> <!-- 문 손잡이 -->
-                        
+
                         <!-- 굴뚝 -->
                         <rect x="60" y="5" width="10" height="20" fill="#5D4037" />
                         <rect x="58" y="5" width="14" height="3" fill="#4E342E" />
-                        
+
                         <!-- 연기 -->
                         <g class="smoke">
                             <ellipse cx="65" cy="0" rx="5" ry="3" fill="white" opacity="0.7" />
                             <ellipse cx="68" cy="-8" rx="6" ry="4" fill="white" opacity="0.5" />
                             <ellipse cx="72" cy="-18" rx="7" ry="5" fill="white" opacity="0.3" />
                         </g>
-                        
+
                         <!-- 현관 계단 -->
                         <rect x="25" y="90" width="30" height="5" fill="#8D6E63" />
                         <rect x="30" y="95" width="20" height="5" fill="#8D6E63" />
                     </g>
-                    
+
                     <!-- 오른쪽 집 (목조 주택) -->
                     <g id="wooden-house" transform="translate(200, 140) scale(0.4)">
                         <!-- 집 본체 -->
                         <rect x="0" y="30" width="80" height="60" fill="url(#wood-pattern)" filter="url(#shadow)" />
-                        
+
                         <!-- 지붕 -->
                         <polygon points="0,30 40,-10 80,30" fill="#795548" />
                         <path d="M0,30 L80,30" stroke="#5D4037" stroke-width="2" />
-                        
+
                         <!-- 창문 -->
-                        <rect x="15" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#5D4037" stroke-width="2" />
+                        <rect x="15" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#5D4037"
+                            stroke-width="2" />
                         <path d="M15,55 H35 M25,45 V65" stroke="#5D4037" stroke-width="1" />
-                        
-                        <rect x="45" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#5D4037" stroke-width="2" />
+
+                        <rect x="45" y="45" width="20" height="20" fill="url(#window-reflection)" stroke="#5D4037"
+                            stroke-width="2" />
                         <path d="M45,55 H65 M55,45 V65" stroke="#5D4037" stroke-width="1" />
-                        
+
                         <!-- 문 -->
                         <rect x="30" y="70" width="20" height="20" fill="#5D4037" />
                         <circle cx="45" cy="80" r="2" fill="#FFC107" /> <!-- 문 손잡이 -->
-                        
+
                         <!-- 베란다 -->
                         <rect x="-10" y="70" width="100" height="5" fill="#8D6E63" />
                         <rect x="0" y="75" width="5" height="15" fill="#8D6E63" />
                         <rect x="75" y="75" width="5" height="15" fill="#8D6E63" />
                     </g>
-                    
+
                     <!-- 배경 나무들 (다양한 종류) -->
                     <g id="background-trees">
                         <!-- 소나무 스타일 -->
@@ -241,28 +261,32 @@
                             <polygon points="-15,-20 25,-20 5,-60" fill="#388E3C" />
                             <polygon points="-10,-40 20,-40 5,-70" fill="#43A047" />
                         </g>
-                        
+
                         <!-- 참나무 스타일 -->
                         <g transform="translate(260, 170) scale(0.7)">
                             <rect x="0" y="0" width="10" height="40" fill="#5D4037" />
                             <ellipse cx="5" cy="-20" rx="25" ry="30" fill="#388E3C" />
                             <ellipse cx="5" cy="-25" rx="20" ry="25" fill="#43A047" />
                         </g>
-                        
+
                         <!-- 단풍나무 스타일 -->
                         <g transform="translate(100, 190) scale(0.5)">
                             <rect x="0" y="0" width="10" height="40" fill="#5D4037" />
-                            <path d="M5,-40 L-20,-10 L-10,-10 L-25,10 L-5,10 L-5,0 L15,0 L15,10 L35,10 L20,-10 L30,-10 Z" fill="#66BB6A" />
+                            <path
+                                d="M5,-40 L-20,-10 L-10,-10 L-25,10 L-5,10 L-5,0 L15,0 L15,10 L35,10 L20,-10 L30,-10 Z"
+                                fill="#66BB6A" />
                         </g>
-                        
+
                         <!-- 버드나무 스타일 -->
                         <g transform="translate(170, 185) scale(0.6)">
                             <rect x="0" y="0" width="8" height="35" fill="#795548" />
                             <path d="M4,-5 C-20,-15 -15,-40 4,-40 C23,-40 28,-15 4,-5" fill="#81C784" />
-                            <path d="M4,0 C-10,-5 -20,-30 -25,-10 M4,0 C-5,-5 -15,-20 -20,-5 M4,0 C0,-5 -5,-20 -10,-5" stroke="#81C784" stroke-width="1" fill="none" />
-                            <path d="M4,0 C18,-5 28,-30 33,-10 M4,0 C13,-5 23,-20 28,-5 M4,0 C8,-5 13,-20 18,-5" stroke="#81C784" stroke-width="1" fill="none" />
+                            <path d="M4,0 C-10,-5 -20,-30 -25,-10 M4,0 C-5,-5 -15,-20 -20,-5 M4,0 C0,-5 -5,-20 -10,-5"
+                                stroke="#81C784" stroke-width="1" fill="none" />
+                            <path d="M4,0 C18,-5 28,-30 33,-10 M4,0 C13,-5 23,-20 28,-5 M4,0 C8,-5 13,-20 18,-5"
+                                stroke="#81C784" stroke-width="1" fill="none" />
                         </g>
-                        
+
                         <!-- 작은 관목들 -->
                         <g transform="translate(220, 210) scale(0.4)">
                             <ellipse cx="0" cy="0" rx="15" ry="10" fill="#66BB6A" />
@@ -274,13 +298,13 @@
                             <ellipse cx="0" cy="0" rx="15" ry="10" fill="#66BB6A" />
                         </g>
                     </g>
-                    
+
                     <!-- 울타리 (더 자연스러운 목재 울타리) -->
                     <g id="fence">
                         <!-- 가로 부분 -->
                         <rect x="0" y="250" width="300" height="5" fill="url(#wood-pattern)" />
                         <rect x="0" y="240" width="300" height="3" fill="url(#wood-pattern)" />
-                        
+
                         <!-- 세로 기둥 -->
                         <g id="fence-posts">
                             <rect x="10" y="230" width="5" height="25" fill="#8D6E63" />
@@ -294,7 +318,7 @@
                             <rect x="250" y="230" width="5" height="25" fill="#8D6E63" />
                             <rect x="280" y="230" width="5" height="25" fill="#8D6E63" />
                         </g>
-                        
+
                         <!-- 울타리 디테일 -->
                         <path d="M10,240 L40,240 M10,250 L40,250" stroke="#5D4037" stroke-width="0.5" />
                         <path d="M70,240 L100,240 M70,250 L100,250" stroke="#5D4037" stroke-width="0.5" />
@@ -302,22 +326,27 @@
                         <path d="M190,240 L220,240 M190,250 L220,250" stroke="#5D4037" stroke-width="0.5" />
                         <path d="M250,240 L280,240 M250,250 L280,250" stroke="#5D4037" stroke-width="0.5" />
                     </g>
-                    
+
                     <!-- 넓은 잔디밭 (상세 패턴 적용) -->
                     <rect id="lawn" x="0" y="255" width="300" height="125" fill="url(#detailed-grass)" />
-                    
+
                     <!-- 땅 -->
                     <rect id="ground" x="0" y="380" width="300" height="20" fill="#8d6e63" />
-                    
+
                     <!-- 잔디 패턴 (더 자연스러운 물결) -->
                     <g id="grass-details">
-                        <path d="M0,255 Q30,250 60,255 T120,255 T180,255 T240,255 T300,255" stroke="#7CB342" stroke-width="2" fill="none" />
-                        <path d="M0,270 Q30,265 60,270 T120,270 T180,270 T240,270 T300,270" stroke="#7CB342" stroke-width="1" fill="none" />
-                        <path d="M0,290 Q30,285 60,290 T120,290 T180,290 T240,290 T300,290" stroke="#7CB342" stroke-width="1.5" fill="none" />
-                        <path d="M0,310 Q40,305 80,310 T160,310 T240,310 T300,310" stroke="#7CB342" stroke-width="1" fill="none" />
-                        <path d="M0,330 Q50,325 100,330 T200,330 T300,330" stroke="#7CB342" stroke-width="1.2" fill="none" />
+                        <path d="M0,255 Q30,250 60,255 T120,255 T180,255 T240,255 T300,255" stroke="#7CB342"
+                            stroke-width="2" fill="none" />
+                        <path d="M0,270 Q30,265 60,270 T120,270 T180,270 T240,270 T300,270" stroke="#7CB342"
+                            stroke-width="1" fill="none" />
+                        <path d="M0,290 Q30,285 60,290 T120,290 T180,290 T240,290 T300,290" stroke="#7CB342"
+                            stroke-width="1.5" fill="none" />
+                        <path d="M0,310 Q40,305 80,310 T160,310 T240,310 T300,310" stroke="#7CB342" stroke-width="1"
+                            fill="none" />
+                        <path d="M0,330 Q50,325 100,330 T200,330 T300,330" stroke="#7CB342" stroke-width="1.2"
+                            fill="none" />
                     </g>
-                    
+
                     <!-- 돌 벤치 (더 자연스러운 형태) -->
                     <g id="stone-bench" transform="translate(150, 330)">
                         <path d="M-30,0 Q-30,-5 -25,-5 L25,-5 Q30,-5 30,0 Z" fill="#9E9E9E" filter="url(#shadow)" />
@@ -326,11 +355,12 @@
                         <path d="M-30,0 L-25,10 L25,10 L30,0" fill="#9E9E9E" />
                         <path d="M-25,-5 L25,-5" stroke="#757575" stroke-width="0.5" fill="none" />
                     </g>
-                    
+
                     <!-- 작은 연못 -->
-                    <ellipse cx="230" cy="300" rx="25" ry="15" fill="#1976D2" opacity="0.6" filter="url(#water-effect)" />
+                    <ellipse cx="230" cy="300" rx="25" ry="15" fill="#1976D2" opacity="0.6"
+                        filter="url(#water-effect)" />
                     <path d="M210,300 Q230,295 250,300" stroke="#64B5F6" stroke-width="0.5" fill="none" />
-                    
+
                     <!-- 꽃과 식물 (더 다양한 종류) -->
                     <g id="flowers">
                         <!-- 빨간 꽃 -->
@@ -340,7 +370,7 @@
                             <path d="M0,3 L0,8" stroke="#4CAF50" stroke-width="1" />
                             <path d="M0,5 L-3,3 M0,5 L3,3" stroke="#4CAF50" stroke-width="0.5" />
                         </g>
-                        
+
                         <!-- 보라색 꽃 -->
                         <g transform="translate(220, 320)">
                             <circle cx="-2" cy="-2" r="2" fill="#E040FB" />
@@ -350,14 +380,14 @@
                             <circle cx="0" cy="0" r="2" fill="#FFEB3B" />
                             <path d="M0,2 L0,8" stroke="#4CAF50" stroke-width="1" />
                         </g>
-                        
+
                         <!-- 파란 꽃 -->
                         <g transform="translate(260, 310)">
                             <path d="M0,0 L3,3 L0,6 L-3,3 Z" fill="#448AFF" />
                             <circle cx="0" cy="3" r="1.5" fill="#FFEB3B" />
                             <path d="M0,6 L0,10" stroke="#4CAF50" stroke-width="1" />
                         </g>
-                        
+
                         <!-- 해바라기 -->
                         <g transform="translate(40, 310)">
                             <circle cx="0" cy="0" r="5" fill="#FFC107" />
@@ -365,14 +395,15 @@
                             <path d="M0,5 L0,15" stroke="#4CAF50" stroke-width="1.5" />
                             <path d="M0,8 L-3,6 M0,10 L3,8" stroke="#4CAF50" stroke-width="1" />
                         </g>
-                        
+
                         <!-- 민들레 -->
                         <g transform="translate(120, 330)">
                             <circle cx="0" cy="0" r="3" fill="#FFECB3" />
-                            <path d="M-3,-3 L3,3 M-3,3 L3,-3 M0,-4 L0,4 M-4,0 L4,0" stroke="#FFECB3" stroke-width="0.5" />
+                            <path d="M-3,-3 L3,3 M-3,3 L3,-3 M0,-4 L0,4 M-4,0 L4,0" stroke="#FFECB3"
+                                stroke-width="0.5" />
                             <path d="M0,3 L0,10" stroke="#4CAF50" stroke-width="1" />
                         </g>
-                        
+
                         <!-- 작은 덤불 -->
                         <g transform="translate(200, 300)">
                             <ellipse cx="0" cy="0" rx="8" ry="5" fill="#66BB6A" />
@@ -380,14 +411,14 @@
                             <circle cx="3" cy="-1" r="2" fill="#448AFF" />
                             <circle cx="0" cy="1" r="2" fill="#448AFF" />
                         </g>
-                        
+
                         <!-- 잔디 튀어나온 부분 -->
                         <g transform="translate(180, 340)">
                             <path d="M-5,0 L0,-8 L5,0" stroke="#7CB342" stroke-width="1" fill="none" />
                             <path d="M-3,0 L0,-6 L3,0" stroke="#7CB342" stroke-width="1" fill="none" />
                             <path d="M-1,0 L0,-4 L1,0" stroke="#7CB342" stroke-width="1" fill="none" />
                         </g>
-                        
+
                         <!-- 들꽃 무리 -->
                         <g transform="translate(70, 320)">
                             <circle cx="0" cy="0" r="1" fill="#FF5252" />
@@ -395,13 +426,14 @@
                             <circle cx="-3" cy="-1" r="1" fill="#448AFF" />
                             <circle cx="2" cy="3" r="1" fill="#FF5252" />
                             <circle cx="-2" cy="2" r="1" fill="#E040FB" />
-                            <path d="M0,0 L0,5 M3,-2 L3,3 M-3,-1 L-3,4 M2,3 L2,6 M-2,2 L-2,5" stroke="#4CAF50" stroke-width="0.5" />
+                            <path d="M0,0 L0,5 M3,-2 L3,3 M-3,-1 L-3,4 M2,3 L2,6 M-2,2 L-2,5" stroke="#4CAF50"
+                                stroke-width="0.5" />
                         </g>
                     </g>
-                    
+
                     <!-- 이벤트 효과 그룹 -->
                     <g id="event-effects"></g>
-                    
+
                     <!-- 씨앗/뿌리 (초기에만 보임) -->
                     <g id="seed">
                         <ellipse cx="150" cy="380" rx="10" ry="5" fill="#5d4037" />
@@ -421,7 +453,7 @@
 
                     <!-- 빛 효과 (후반에 나타남) -->
                     <g id="light-effects"></g>
-                    
+
                     <!-- 동물/곤충 -->
                     <g id="animals"></g>
                 </svg>
