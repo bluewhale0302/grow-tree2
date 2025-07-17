@@ -332,16 +332,16 @@ function createParticles() {
 // 자동 새로고침 함수 - 돈이 충분할 때 상점을 자동으로 새로고침
 function autoRefreshShop() {
     // 구매 가능한 아이템이 있는지 확인
-    const purchasableItem = shopItems.find(item => 
+    const purchasableItem = shopItems.find(item =>
         item.quantity < item.maxQuantity && gameState.money >= item.price
     );
-    
+
     // 구매 가능한 아이템이 있으면 상점 새로고침
     if (purchasableItem) {
         renderShop();
         return true;
     }
-    
+
     return false;
 }
 
@@ -456,14 +456,14 @@ function renderShopItems(container, items) {
         // 아이템 헤더 영역 (배경색 있는 상단 부분)
         const itemHeader = document.createElement('div');
         itemHeader.className = 'item-header';
-        
+
         // 카테고리 표시 (상단 우측 모서리)
         const categoryIndicator = document.createElement('div');
         categoryIndicator.className = 'category-indicator';
-        
+
         // 카테고리에 따라 다른 아이콘 표시
         let categoryIcon = '';
-        switch(item.category) {
+        switch (item.category) {
             case '성장':
                 categoryIcon = '🌱';
                 break;
@@ -482,57 +482,57 @@ function renderShopItems(container, items) {
             default:
                 categoryIcon = '🔍';
         }
-        
+
         categoryIndicator.textContent = categoryIcon;
         itemHeader.appendChild(categoryIndicator);
-        
+
         // 제목
         const title = document.createElement('h3');
         title.textContent = item.name;
         itemHeader.appendChild(title);
-        
+
         itemElement.appendChild(itemHeader);
-        
+
         // 아이템 내용 생성 - 수평 레이아웃
         const itemContent = document.createElement('div');
         itemContent.className = 'item-content';
-        
+
         // 효과 설명 (아이콘 + 텍스트)
         const effectBox = document.createElement('div');
         effectBox.className = 'effect-box';
-        
+
         // 효과 설명 텍스트
         const description = document.createElement('p');
         description.className = 'description';
         description.textContent = item.description;
         effectBox.appendChild(description);
-        
+
         itemContent.appendChild(effectBox);
-        
+
         // 가격 및 수량 정보 컨테이너
         const priceContainer = document.createElement('div');
         priceContainer.className = 'price-container';
-        
+
         // 가격
         const price = document.createElement('span');
         price.className = 'price';
         price.textContent = `${item.price.toLocaleString()}원`;
         priceContainer.appendChild(price);
-        
+
         // 수량 정보
         const quantityInfo = document.createElement('span');
         quantityInfo.className = 'quantity-info';
         quantityInfo.textContent = `${item.quantity}/${item.maxQuantity}`;
         priceContainer.appendChild(quantityInfo);
-        
+
         itemContent.appendChild(priceContainer);
-        
+
         itemElement.appendChild(itemContent);
 
         // 구매 버튼
         const buyButton = document.createElement('button');
         buyButton.className = 'buy-button';
-        
+
         if (maxReached) {
             buyButton.innerHTML = '<span>최대 구매</span>';
         } else if (affordable) {
@@ -540,7 +540,7 @@ function renderShopItems(container, items) {
         } else {
             buyButton.innerHTML = '<span>돈 부족</span>';
         }
-        
+
         buyButton.setAttribute('data-item-id', item.id);
 
         if (disabled) {
@@ -1294,7 +1294,7 @@ function gameLoop() {
 
         // 수입 알림 표시
         showIncomeNotification(income);
-        
+
         // 수입이 들어올 때 자동 새로고침 실행
         autoRefreshShop();
     }
@@ -5045,7 +5045,7 @@ function updateIncomeCountdown() {
 
     // 남은 시간 계산 (초 단위)
     const now = Date.now();
-    const incomeInterval = 30000; // 30초 (밀리초 단위)
+    const incomeInterval = 10000; // 10초 (밀리초 단위)
     const timeElapsed = now - gameState.lastIncomeTime;
     const timeRemaining = Math.max(0, incomeInterval - timeElapsed);
     const secondsRemaining = Math.ceil(timeRemaining / 1000);
@@ -5071,105 +5071,105 @@ function createNaturalBranches(count) {
     const trunkHeight = parseFloat(trunkElement.getAttribute('height') || '60');
 
     const centerX = trunkX + trunkWidth / 2;
-    
+
     // 줄기 상단 위치
     const trunkTop = trunkY;
-    
+
     // 줄기 자체를 더 자연스럽게 만들기
     const mainTrunk = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-    
+
     // 줄기가 약간 구부러지도록 설정
     const trunkCurveOffset = Math.random() * 10 - 5; // -5에서 5 사이의 랜덤값
     const trunkControlX = centerX + trunkCurveOffset;
     const trunkControlY = trunkY + trunkHeight * 0.5;
-    
+
     mainTrunk.setAttribute('d', `M ${centerX} ${trunkY + trunkHeight} Q ${trunkControlX} ${trunkControlY} ${centerX} ${trunkY}`);
     mainTrunk.setAttribute('stroke', '#5D4037');
     mainTrunk.setAttribute('stroke-width', trunkWidth);
     mainTrunk.setAttribute('fill', 'none');
     mainTrunk.setAttribute('stroke-linecap', 'round');
-    
+
     branchesGroup.appendChild(mainTrunk);
 
     // 메인 가지 생성 - 더 자연스러운 분포로
     for (let i = 0; i < count; i++) {
         // 가지 시작 위치를 줄기 상단에 더 집중
-        const branchY = trunkY + (i < count/3 ? 
-                                 trunkHeight * 0.1 + (i / count) * trunkHeight * 0.3 : // 상단 1/3은 위쪽에 집중
-                                 trunkHeight * 0.3 + ((i - count/3) / count) * trunkHeight * 0.6); // 나머지는 고르게 분포
-        
+        const branchY = trunkY + (i < count / 3 ?
+            trunkHeight * 0.1 + (i / count) * trunkHeight * 0.3 : // 상단 1/3은 위쪽에 집중
+            trunkHeight * 0.3 + ((i - count / 3) / count) * trunkHeight * 0.6); // 나머지는 고르게 분포
+
         // 가지 길이 - 상단 가지가 더 길게
-        const lengthFactor = i < count/3 ? 1.5 : 1.0;
+        const lengthFactor = i < count / 3 ? 1.5 : 1.0;
         const length = (20 + Math.random() * 40) * lengthFactor;
-        
+
         // 가지 두께 - 하단 가지가 더 두껍게
-        const thicknessFactor = i < count/3 ? 0.8 : 1.2;
+        const thicknessFactor = i < count / 3 ? 0.8 : 1.2;
         const thickness = (2 + Math.random() * 4) * thicknessFactor;
-        
+
         // 가지 각도 - 상단은 더 수직적으로, 하단은 더 수평적으로
-        const angleBase = i < count/3 ? 60 : 30;
-        const angle = (i % 2 === 0) ? 
-                     -angleBase - Math.random() * 20 : 
-                      angleBase + Math.random() * 20;
-        
+        const angleBase = i < count / 3 ? 60 : 30;
+        const angle = (i % 2 === 0) ?
+            -angleBase - Math.random() * 20 :
+            angleBase + Math.random() * 20;
+
         // 곡선 가지 생성 - 더 자연스러운 곡선
         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-        
+
         // 가지의 끝점 계산
         const endX = centerX + length * Math.cos(angle * Math.PI / 180);
         const endY = branchY - length * Math.sin(angle * Math.PI / 180);
-        
+
         // 제어점 계산 - 더 자연스러운 곡선을 위해 여러 제어점 사용
         const controlX1 = centerX + (length * 0.3) * Math.cos((angle + (angle > 0 ? -10 : 10)) * Math.PI / 180);
         const controlY1 = branchY - (length * 0.3) * Math.sin((angle + (angle > 0 ? 10 : -10)) * Math.PI / 180);
-        
+
         const controlX2 = centerX + (length * 0.7) * Math.cos((angle + (angle > 0 ? -5 : 5)) * Math.PI / 180);
         const controlY2 = branchY - (length * 0.7) * Math.sin((angle + (angle > 0 ? 5 : -5)) * Math.PI / 180);
-        
+
         // 곡선 경로 설정 - 3차 베지어 곡선 사용
         path.setAttribute('d', `M ${centerX} ${branchY} C ${controlX1} ${controlY1}, ${controlX2} ${controlY2}, ${endX} ${endY}`);
-        
+
         // 가지 색상 - 위치에 따라 약간 다른 색상
-        const branchColor = i < count/3 ? '#8D6E63' : '#795548';
+        const branchColor = i < count / 3 ? '#8D6E63' : '#795548';
         path.setAttribute('stroke', branchColor);
         path.setAttribute('stroke-width', thickness);
         path.setAttribute('fill', 'none');
         path.setAttribute('stroke-linecap', 'round');
-        
+
         branchesGroup.appendChild(path);
-        
+
         // 작은 가지 추가 - 더 많은 작은 가지
         const smallBranchCount = Math.floor(Math.random() * 3) + 1; // 1~3개의 작은 가지
-        
+
         for (let j = 0; j < smallBranchCount; j++) {
             if (length > 20) { // 충분히 긴 가지에만 작은 가지 추가
                 const smallBranchLength = length * (0.3 + Math.random() * 0.3); // 30~60% 길이
                 const smallBranchThickness = thickness * (0.4 + Math.random() * 0.3); // 40~70% 두께
-                
+
                 // 작은 가지 각도 - 메인 가지에서 더 자연스럽게 뻗어나가도록
                 const smallBranchAngle = angle + (Math.random() * 60 - 30);
-                
+
                 // 작은 가지 시작점 - 메인 가지의 다양한 위치에서 시작
                 const branchPosition = 0.3 + Math.random() * 0.6; // 30~90% 위치
                 const startSmallX = centerX + (length * branchPosition) * Math.cos(angle * Math.PI / 180);
                 const startSmallY = branchY - (length * branchPosition) * Math.sin(angle * Math.PI / 180);
-                
+
                 const smallPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                
+
                 // 작은 가지 끝점
                 const endSmallX = startSmallX + smallBranchLength * Math.cos(smallBranchAngle * Math.PI / 180);
                 const endSmallY = startSmallY - smallBranchLength * Math.sin(smallBranchAngle * Math.PI / 180);
-                
+
                 // 작은 가지 제어점
                 const controlSmallX = startSmallX + (smallBranchLength * 0.5) * Math.cos((smallBranchAngle + (smallBranchAngle > 0 ? -10 : 10)) * Math.PI / 180);
                 const controlSmallY = startSmallY - (smallBranchLength * 0.5) * Math.sin((smallBranchAngle + (smallBranchAngle > 0 ? 10 : -10)) * Math.PI / 180);
-                
+
                 smallPath.setAttribute('d', `M ${startSmallX} ${startSmallY} Q ${controlSmallX} ${controlSmallY} ${endSmallX} ${endSmallY}`);
                 smallPath.setAttribute('stroke', '#A1887F');
                 smallPath.setAttribute('stroke-width', smallBranchThickness);
                 smallPath.setAttribute('fill', 'none');
                 smallPath.setAttribute('stroke-linecap', 'round');
-                
+
                 branchesGroup.appendChild(smallPath);
             }
         }
@@ -5187,27 +5187,27 @@ function createNaturalLeaves(count) {
     const trunkY = parseFloat(trunkElement.getAttribute('y') || '320');
 
     const centerX = trunkX + trunkWidth / 2;
-    
+
     // 나무 성장도에 따라 잎 분포 조정
     const maxDistance = 30 + Math.min(100, gameState.treeGrowth / 1000);
-    
+
     // 잎 그룹 생성 (가지 주변에 집중)
     const branchElements = branchesGroup.querySelectorAll('path');
-    
+
     if (branchElements.length > 0) {
         // 가지가 있는 경우 가지 주변에 잎 배치
         branchElements.forEach(branch => {
             // 가지 경로를 따라 여러 지점에 잎 배치
             const pathLength = branch.getTotalLength();
-            
+
             // 가지 끝 부분에 더 많은 잎 배치
             const leafCount = Math.floor(count / branchElements.length);
-            
+
             for (let i = 0; i < leafCount; i++) {
                 // 가지 끝 부분에 더 많은 잎이 오도록 분포 조정
                 const position = Math.pow(Math.random(), 2); // 제곱하여 1에 가까운 값이 더 많이 나오도록
                 const point = branch.getPointAtLength(pathLength * (0.5 + position * 0.5)); // 가지의 50~100% 위치
-                
+
                 // 가지 주변에 잎 클러스터 생성
                 createLeafCluster(point.x, point.y, Math.floor(Math.random() * 3) + 1);
             }
@@ -5228,17 +5228,17 @@ function createNaturalLeaves(count) {
 }// 큰 둥근 나무 생성 함수 (이미지 참조)
 function createBigRoundTree() {
     if (!trunkElement || !branchesGroup || !leavesGroup || !fruitsGroup) return;
-    
+
     // 기존 요소 초기화
     clearTreeElements();
-    
+
     // 줄기 크기 및 위치 조정
     trunkElement.setAttribute('x', '130');
     trunkElement.setAttribute('y', '180');
     trunkElement.setAttribute('width', '40');
     trunkElement.setAttribute('height', '200');
     trunkElement.setAttribute('fill', '#8B4513');
-    
+
     // 뿌리 추가
     const roots = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     roots.innerHTML = `
@@ -5248,7 +5248,7 @@ function createBigRoundTree() {
         <path d="M 160,380 Q 170,390 180,400" stroke="#8B4513" stroke-width="6" fill="none" />
     `;
     branchesGroup.appendChild(roots);
-    
+
     // 주요 가지 추가
     const mainBranches = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     mainBranches.innerHTML = `
@@ -5265,7 +5265,7 @@ function createBigRoundTree() {
         <path d="M 150,160 Q 150,140 150,100" stroke="#8B4513" stroke-width="7" fill="none" />
     `;
     branchesGroup.appendChild(mainBranches);
-    
+
     // 작은 가지 추가
     const smallBranches = document.createElementNS('http://www.w3.org/2000/svg', 'g');
     smallBranches.innerHTML = `
@@ -5298,13 +5298,13 @@ function createBigRoundTree() {
         <path d="M 150,100 Q 150,80 150,70" stroke="#8B4513" stroke-width="3" fill="none" />
     `;
     branchesGroup.appendChild(smallBranches);
-    
+
     // 잎 생성 (둥근 형태)
     createRoundLeafCanopy();
-    
+
     // 열매 추가
     addFruits(20);
-    
+
     // 빛 효과 추가
     addLightEffects(15);
 }
@@ -5312,33 +5312,33 @@ function createBigRoundTree() {
 // 둥근 형태의 잎 캐노피 생성
 function createRoundLeafCanopy() {
     if (!leavesGroup) return;
-    
+
     // 잎 색상 그라데이션
     const leafColors = ['#4CAF50', '#66BB6A', '#81C784', '#A5D6A7', '#C8E6C9'];
-    
+
     // 중심점
     const centerX = 150;
     const centerY = 150;
-    
+
     // 큰 원형 캐노피 생성
     for (let i = 0; i < 300; i++) {
         // 랜덤 각도
         const angle = Math.random() * 360;
-        
+
         // 거리는 중심에서 멀어질수록 확률이 낮아지도록 설정
         const distanceMax = 120;
         const distance = Math.pow(Math.random(), 0.5) * distanceMax;
-        
+
         // 위치 계산
         const x = centerX + distance * Math.cos(angle * Math.PI / 180);
         const y = centerY + distance * Math.sin(angle * Math.PI / 180);
-        
+
         // 잎 크기는 중심에 가까울수록 작게
         const size = 5 + (distance / distanceMax) * 10;
-        
+
         // 랜덤 색상 선택
         const color = leafColors[Math.floor(Math.random() * leafColors.length)];
-        
+
         // 잎 생성
         if (Math.random() > 0.3) {
             createLeaf(x, y, size, size * 1.2, color);
@@ -5350,7 +5350,7 @@ function createRoundLeafCanopy() {
 
 // 기존 updateTreeAppearance 함수 수정
 const originalUpdateTreeAppearance = updateTreeAppearance;
-updateTreeAppearance = function(stage) {
+updateTreeAppearance = function (stage) {
     if (stage >= 5) {
         // 5단계 이상이면 큰 둥근 나무로 표현
         createBigRoundTree();
